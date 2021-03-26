@@ -25,8 +25,7 @@ SECRET_KEY = 'trm&@8!*#x1+5_o$j&=)b!^nx8koug5y*_wy_)*e^kref4y6pr'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*',
-                'ml-algorithms-comparision.herokuapp.com']
+ALLOWED_HOSTS = ["127.0.0.1",'ml-algorithms-comparision.herokuapp.com']
 
 
 # Application definition

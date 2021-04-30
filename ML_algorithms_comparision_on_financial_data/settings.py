@@ -32,12 +32,15 @@ ALLOWED_HOSTS = ["127.0.0.1",'ml-algorithms-comparision.herokuapp.com']
 
 INSTALLED_APPS = [
     'app',
+    'corsheaders',
+    'rest_framework',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    "frontend"
 ]
 
 MIDDLEWARE = [
@@ -49,9 +52,14 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'ML_algorithms_comparision_on_financial_data.urls'
+
+CORS_ORIGIN_WHITELIST = [
+
+]
 
 TEMPLATES = [
     {

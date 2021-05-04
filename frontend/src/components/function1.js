@@ -22,6 +22,7 @@ const formReducer = (state, event) => {
 export default function App2(props) {
   const [formData, setFormData] = useReducer(formReducer, {});
   const [submitting, setSubmitting] = useState(false);
+  
   const forceUpdate=function useForceUpdate() {
     let [value, setState] = useState(true);
     return () => setState(!value);
@@ -40,7 +41,7 @@ export default function App2(props) {
 
   const handle_algo_1 = event => {
     if (formData.algo_1 === 'Linear Regression') {
-        render (
+        return (
         <fieldset id = "LR" className = "hidden">
             <label>
                 <p><em>Linear Regression Hyperparameters</em></p>
@@ -155,8 +156,8 @@ export default function App2(props) {
         ;
       }else if (formData.algo_2 === 'ARIMA' ) {
         console.log('i am here')
-        ReactDOM.render(
-          `
+        render(
+          React.createElement(`
           <fieldset id = "ARIMA" className = "hidden">
               <label>
               <p><em>ARIMA Hyperparameters</em></p>
@@ -168,7 +169,7 @@ export default function App2(props) {
               <input name="ARIMA_hyper_3" onChange={handleChange}  />
               </label>
           </fieldset>
-          `,document.getElementById('algo2_page')
+          `),document.getElementById('algo2_page')
         );
       }else if (formData.algo_2 === 'K Nearest Neigbhours' ) {
         render (

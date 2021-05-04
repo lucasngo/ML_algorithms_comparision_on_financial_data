@@ -9,7 +9,7 @@ import {
     Redirect,
   } from "react-router-dom";
   
-import App2,{formReducer} from "./function1";
+import App2 from "./firstpage";
 
 
 export default class App extends Component {

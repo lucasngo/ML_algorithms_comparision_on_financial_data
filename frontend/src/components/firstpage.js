@@ -1,6 +1,6 @@
 import React,{Component, useReducer, useState } from 'react';
 import { render } from 'react-dom';
-
+import algo1 from "./algo1"
 export default class App2 extends Component{
     constructor(props){
         super(props)
@@ -11,39 +11,51 @@ export default class App2 extends Component{
             algo_2: '',
             metric: '',
           };
+        this.handleChange = this.handleChange.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this)
+        this.handle_algo_1=this.handle_algo_1.bind(this)
+        this.handle_algo_2=this.handle_algo_2.bind(this)
     }
     handleSubmit(event){
         event.preventDefault()
     }
 
     handleChange(event){
-        this.setState({...state,
-            [event.name]:event.value})
+        // this.setState({name:event.name,
+        // value:event.value})
+        this.setState({...this.state,[event.target.name]:event.target.value})
+        console.log(this.state)
+        // {...this.state,[event.name]:event.value}
     }
 
     handle_algo_1(event){
+        
         if (this.state.algo_1 === 'Linear Regression') {
-            render (
-            <fieldset id = "LR" className = "hidden">
-                <label>
-                    <p><em>Linear Regression Hyperparameters</em></p>
-                    <p>fit intercept</p>
-                    <select name="LR_hyper_1" onChange={this.handleChange} >
-                    <option value="">--Please choose a fit intercept value--</option>
-                    <option value="True">True</option>
-                    <option value="False">False</option>
-                    </select>
-                    <p>y norm</p>
-                    <select name="LR_hyper_2" onChange={this.handleChange} >
-                    <option value="">--Please choose a y norm value--</option>
-                    <option value="True">True</option>
-                    <option value="False">False</option>
-                    </select>
-                </label>
+            alert('func')
+            document.getElementById(this.state.algo_1).innerHTML=
+            `
+                <fieldset id = "LR" className = "hidden">
+                    <label>
+                        <p><em>Linear Regression Hyperparameters</em></p>
+                        <p>fit intercept</p>
+                        <select name="LR_hyper_1" onChange={this.handleChange} value={this.state.LR_hyper_1 || ''}  >
+                        <option value="">--Please choose a fit intercept value--</option>
+                        <option value="True">True</option>
+                        <option value="False">False</option>
+                        </select>
+                        <p>y norm</p>
+                        <select name="LR_hyper_2" onChange={this.handleChange} >
+                        <option value="">--Please choose a y norm value--</option>
+                        <option value="True">True</option>
+                        <option value="False">False</option>
+                        </select>
+                    </label>
                 </fieldset>
-          );
+            `
+            
         }else if (this.state.algo_1 === 'ARIMA' ) {
-          render (
+            document.getElementById(this.state.algo_1).innerHTML=
+            `
             <fieldset id = "ARIMA" className = "hidden">
                 <label>
                 <p><em>ARIMA Hyperparameters</em></p>
@@ -55,7 +67,8 @@ export default class App2 extends Component{
                 <input name="ARIMA_hyper_3" onChange={this.handleChange}  />
                 </label>
             </fieldset>
-          );
+            `
+          ;
         }else if (this.state.algo_1 === 'K Nearest Neigbhours' ) {
           render (
             <fieldset id = "KNN" className = "hidden">
@@ -210,11 +223,11 @@ export default class App2 extends Component{
               
                <div>
                  <p>You are submitting the following:</p>
-                 {/* <ul>
+                 <ul>
                    {Object.entries(this.state).map(([name, value]) => (
                      <li key={name}><strong>{name}</strong>:{value.toString()}</li>
                    ))}
-                 </ul> */}
+                 </ul>
                 
         
                  <form onSubmit={this.handleSubmit}>
@@ -270,7 +283,7 @@ export default class App2 extends Component{
                         </select>
                       </label>
                     </fieldset>
-                    <div id='algo1_page'></div>
+                    <div id={this.state.algo_1}></div>
         
         
                     <fieldset>
@@ -288,9 +301,9 @@ export default class App2 extends Component{
                     </fieldset>
                     <div id='algo2_page'></div>
         
-                    {/* <p>{Object.entries(this.state).map(([name, value]) => (
+                    <p>{Object.entries(this.state).map(([name, value]) => (
                         <li key={name}><strong>{name}</strong>:{value.toString()}</li>
-                      ))}</p> */}
+                      ))}</p>
         
                     <button type="submit">Submit</button>
         

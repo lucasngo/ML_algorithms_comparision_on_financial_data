@@ -6,7 +6,7 @@
 
 
 
-import App2 from './components/trial';
+import App2 from './components/App';
 // import reportWebVitals from './reportWebVitals';
 
 

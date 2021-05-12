@@ -12,8 +12,10 @@ export default class App2 extends Component{
             algo_2: '',
             metric: '',
             algo1_page:'',
-            algo2_page:''
+            algo2_page:'',
+            ticker:this.props.match.params.ticker
           };
+        
         this.handleChange = this.handleChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
         this.handle_algo_1=this.handle_algo_1.bind(this)

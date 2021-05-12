@@ -20,7 +20,7 @@ from objects import *
 def form(request):
     return render(request,"form.html")
 
-def stock_ticker(request):
+def stock_ticker(request): 
     if request.method=="POST":
         #var=request.POST['var']
         stock=request.POST['stock']

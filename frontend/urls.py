@@ -3,6 +3,6 @@ from .views import index
 
 urlpatterns = [
     path('', index),
-    path('portfolio/',index)
+    path('compare/<str:ticker>',index)
     
 ]

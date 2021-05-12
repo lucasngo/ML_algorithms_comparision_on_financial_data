@@ -10,7 +10,7 @@ import {
   } from "react-router-dom";
   
 import App2 from "./firstpage";
-import Portfolio from "./secondpage";
+import Portfolio from "./portfolio";
 
 
 export default class App extends Component {
@@ -18,8 +18,8 @@ export default class App extends Component {
         return (
         <Router>
             <Switch>
-                <Route exact path="/" component ={App2}></Route>
-                <Route path= '/portfolio' component={Portfolio}></Route>
+                <Route exact path="/" component ={Portfolio}></Route>
+                <Route path= '/compare/:ticker' component={App2}></Route>
             </Switch>
         </Router>
           );

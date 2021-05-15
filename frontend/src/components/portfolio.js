@@ -22,7 +22,7 @@
 
 import React from 'react';
 import PortfolioItems from './portfolio_items';
-// import './Portfolio.css';
+import '../../static/css/Portfolio.css';
 // import ButtonItem from './ButtonItem'
 
 
